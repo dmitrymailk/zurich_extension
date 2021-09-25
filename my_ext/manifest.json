@@ -6,7 +6,7 @@
   "description": "Turns the page red when you click the icon",
   "permissions": ["activeTab", "scripting", "storage", "tabs"],
   "background": {
-    "service_worker": ["libs/socket.io.min.js", "background.js"]
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
