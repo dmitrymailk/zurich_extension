@@ -15,18 +15,73 @@
         margin: 0 !important;
       }
 
+      @keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
       h1 {
+        animation: flickerAnimation 8s infinite;
         position: absolute;
         top: 200px;
         font-size: 250px;
         left: 100px;
         color: white;
+        text-shadow: rgb(32, 216, 145) 1px 0 10px;
+      }
+
+      .time__num {
+        top: 100px;
+        font-size: 250px;
+        left: calc(50% - 100px);
+        position: absolute;
+        color: white;
+        text-shadow: #fc0 1px 0 10px;
       }
     </style>
   </head>
   <body>
     <div class="videoWrapper">
-      <!-- Copy & Pasted from YouTube -->
+      <div class="time__num">00:30</div>
       <h1>BREATHE</h1>
       <iframe
         src="https://www.youtube.com/embed/aGMMtYpVgFU?autoplay=1&loop=1&showinfo=0&cc_load_policy=1&controls=0&disablekb=1"
@@ -36,4 +91,6 @@
       ></iframe>
     </div>
   </body>
+
+  <script src="breathe_page.js"></script>
 </html>

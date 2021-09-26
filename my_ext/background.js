@@ -23,36 +23,26 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       JSON.stringify({ level: request["smile"] })
     );
   } else if (request["quote"]) {
-    socket.emit("chrome-relax-quote");
+    socket.emit("chrome-relax-done");
   }
 });
 
 // chrome-relax-done
 
-function return_page() {
-  chrome.storage.local.get("tab_page", (storage) => {
-    if (storage["tab_page"]) {
-    }
-  });
-}
-
 socket.on("stress-alert-smile", () => {
-  let url = chrome.runtime.getURL("feel_page.html");
-  // let url = chrome.runtime.getURL("quotes_page.html");
-  // let url = chrome.runtime.getURL("breathe_page.html");
-  chrome.tabs.create({ url });
+  // let url = chrome.runtime.getURL("feel_page.html");
+  // chrome.tabs.create({ url });
 });
 
 socket.on("stress-alert-quotes", (data) => {
   // console.log(data);
   chrome.storage.local.set({ quote: data["data"] }, () => {
-    let url = chrome.runtime.getURL("quotes_page.html");
-    // let url = chrome.runtime.getURL("breathe_page.html");
-    chrome.tabs.create({ url });
+    // let url = chrome.runtime.getURL("quotes_page.html");
+    // chrome.tabs.create({ url });
   });
 });
 
 socket.on("stress-alert-breath", () => {
-  let url = chrome.runtime.getURL("breathe_page.html");
-  chrome.tabs.create({ url });
+  // let url = chrome.runtime.getURL("breathe_page.html");
+  // chrome.tabs.create({ url });
 });
