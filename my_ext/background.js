@@ -30,19 +30,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 // chrome-relax-done
 
 socket.on("stress-alert-smile", () => {
-  // let url = chrome.runtime.getURL("feel_page.html");
-  // chrome.tabs.create({ url });
+  let url = chrome.runtime.getURL("feel_page.html");
+  chrome.tabs.create({ url });
 });
 
 socket.on("stress-alert-quotes", (data) => {
   // console.log(data);
   chrome.storage.local.set({ quote: data["data"] }, () => {
-    // let url = chrome.runtime.getURL("quotes_page.html");
-    // chrome.tabs.create({ url });
+    let url = chrome.runtime.getURL("quotes_page.html");
+    chrome.tabs.create({ url });
   });
 });
 
 socket.on("stress-alert-breath", () => {
-  // let url = chrome.runtime.getURL("breathe_page.html");
-  // chrome.tabs.create({ url });
+  let url = chrome.runtime.getURL("breathe_page.html");
+  chrome.tabs.create({ url });
 });
