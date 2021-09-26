@@ -3,7 +3,7 @@ window.onload = () => {
   document.body.addEventListener("click", () => {
     chrome.storage.local.get("clicks", (storage) => {
       if (storage["clicks"]) {
-        let clicks = storage["clicks"] + 1;
+        let clicks = storage["clicks"] + 10;
         chrome.storage.local.set({ clicks }, () => {
           console.log("click", clicks);
         });

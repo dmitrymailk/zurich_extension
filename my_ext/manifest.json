@@ -1,5 +1,5 @@
 {
-  "name": "Page Redder",
+  "name": "Caring",
   "manifest_version": 2,
   "version": "0.1",
   "description": "Turns the page red when you click the icon",
@@ -15,6 +15,12 @@
   ],
   "browser_action": {
     "default_title": "Mental app",
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": "imgs/icons/48.png"
+  },
+  "icons": {
+    "16": "imgs/icons/16.png",
+    "32": "imgs/icons/32.png",
+    "48": "imgs/icons/48.png"
   }
 }

@@ -1,12 +1,4 @@
 window.onload = () => {
-  let img_1 = document.querySelector(".footer__img_1");
-  let img_2 = document.querySelector(".footer__img_2");
-  let img_3 = document.querySelector(".footer__img_3");
-  let images = [
-    [img_1, 1],
-    [img_2, 2],
-    [img_3, 3],
-  ];
   let time_span = document.querySelector(".time__num");
   let time = new Date(Date.now() + 30000).getTime();
 
@@ -20,15 +12,17 @@ window.onload = () => {
       clearInterval(x);
       time_span.innerHTML = `00:00`;
       console.log("timer end");
+      chrome.runtime.sendMessage({ quote: true });
+      window.close();
     }
   }, 1000);
 
-  for (let item of images)
-    item[0].addEventListener("click", (e) => {
-      console.log("Selected image", item[1]);
-      // "chrome-relax-smile" socket
-      chrome.runtime.sendMessage({ smile: item[1] });
-      window.close();
-    });
-  console.log("feel_page.js");
+  let quote_span = document.querySelector(".footer__quote");
+  chrome.storage.local.get("quote", (storage) => {
+    if (storage["quote"]) {
+      quote_span.innerHTML = storage["quote"];
+    }
+  });
+
+  console.log("quotes_page.js");
 };
