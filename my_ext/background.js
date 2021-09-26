@@ -15,4 +15,8 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   }
 });
 
-console.log(socket);
+socket.on("stress-alert", () => {
+  console.log("STRESSS ALERT");
+  let url = chrome.runtime.getURL("alert.html");
+  chrome.tabs.create({ url });
+});
